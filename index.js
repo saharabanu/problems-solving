@@ -94,6 +94,8 @@ function removeElements(params) {
 //Write a function that takes an array and return a reverse array.
 // Note: The function cannot change the main array. And you cannot use any array methods (Example: reverse() and push())
 
+const reverseArray = (arr) => arr.reduce((acc, val) => [val, ...acc], []);
+
 // problem 7
 // Write a function that takes an array of strings and numbers, and filters out the array so that it returns an array of integers only.
 
@@ -137,21 +139,35 @@ function removeElements(params) {
 // Write a function that takes an array of a number and return the second lowest number in an array
 
 // Note: Please avoid any kind of built-in feature for now.
-
-// lowestNumber([1,5,6,8,2,11,7,10]) —>2
-// lowestNumber([6,8,1,17,71,10]) —>6
-// lowestNumber([9,6,3,8,5,2,9]) —>3
+const lowestNumber = (array) => {
+  let min = Infinity;
+  let secondMin = Infinity;
+  for (let small = 0; small < array.length; small++) {
+    if (array[small] < min) {
+      secondMin = min;
+      min = array[small];
+    } else if (array[small] < secondMin) {
+      secondMin = array[small];
+    }
+  }
+  return secondMin;
+};
+// console.log(lowestNumber([1, 5, 6, 8, 2, 11, 7, 10]));
+// console.log(lowestNumber([6, 8, 1, 17, 71, 10]));
+// console.log(lowestNumber([9, 6, 3, 8, 5, 2, 9]));
 
 //  --------------------------->
 // problem 15
 // Write a function that takes a string like this "rtr3dg6dfju7". And find all numbers from this string and return the sum of those numbers.
 
-function sumNumbers(str) {}
-console.log(sumNumbers("ty5df1fdf4fd9"));
-console.log(sumNumbers("abc1dgv2f3fdf4fd5"));
-console.log(sumNumbers("zx5zx5zx5fdd0fd1"));
-// sumNumbers("abc1dgv2f3fdf4fd5") --> 15
-// sumNumbers("zx5zx5zx5fdd0fd1") --> 16
+const sumNumbers = (str) =>
+  str
+    .split("")
+    .filter((x) => Infinity - x > 0)
+    .reduce((preValue, currentValue) => preValue + Number(currentValue), 0);
+// console.log(sumNumbers("ty5df1fdf4fd9"));
+// console.log(sumNumbers("abc1dgv2f3fdf4fd5"));
+// console.log(sumNumbers("zx5zx5zx5fdd0fd1"));
 
 // problem 16
 // Write a function that takes min and max value and return a random integer within min value and max value.
@@ -288,6 +304,54 @@ function makeCars(wheels, carBodies, figures) {
 // console.log(makeCars(20, 20, 20));
 // console.log(makeCars(58, 50, 40));
 // console.log(makeCars(111, 255, 55));
+
+// Problem: 23
+// A palindrome is a word, phrase, number, or other sequences of characters that reads the same backward or forward, such as madam or rotator.
+// Write a function that takes a string and determines whether it's a palindrome or not. The function should return a boolean value.
+
+function isPalindrome(str) {
+  // const arr = str.split("");
+  const arr = str;
+  if (arr[0] === arr[arr.length - 1]) {
+    return true;
+  } else {
+    return false;
+  }
+}
+// console.log(isPalindrome("repaper"));
+// console.log(isPalindrome("letter"));
+// console.log(isPalindrome("deed"));
+// console.log(isPalindrome("sahara"));
+
+// Problem: 24
+// "Dushtu Polapain" stays away from "dushtu activities" while solving the problem.
+// Let's say, you are trying to watch some lectures to study for your next exam but you keep getting distracted by meme compilations, vine compilations, anime, and more on your favourite video platform.
+
+// Now, your job is to create a function that takes a string and checks some words If it does, return "NO!". Otherwise, return "Good luck, Safe watching!"
+// "anime"
+// "meme"
+// "vines"
+// "roasts"
+// "Hot pics"
+// If it does, return "NO!". Otherwise, return "Good luck, Safe watching!".
+
+const badWords = ["anime", "meme", "vines", "roasts", "Hot pics"];
+function preventDistraction(str) {
+  badWords.every((word) => {
+    if (str.includes(word)) {
+      console.log("No!");
+      return false;
+    } else if (badWords[badWords.length - 1] == word) {
+      console.log("Good luck, Safe watching!");
+    }
+    return true;
+  });
+}
+// preventDistraction("meme that butter my eggroll");
+// preventDistraction("Hot pics of your favorite one!");
+// preventDistraction("How to learn programming in an easy way!");
+// preventDistraction(" it is  anime!");
+// preventDistraction(" everything is good!");
 
 // / * the First Pattern * with Bug
 function strPattern(num) {
