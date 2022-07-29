@@ -103,6 +103,17 @@ const reverseArray = (arr) => arr.reduce((acc, val) => [val, ...acc], []);
 // write a function that takes an array and a string as arguments and return the index number of the string.
 // Note: Cannot use any built-in method.
 
+function findIndex(array, string) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === string) {
+      return i;
+    }
+  }
+}
+// console.log(findIndex(["black", "red", "blue", "green"], "green"));
+// console.log(findIndex(["b", "r", "c", "green"], "b"));
+// console.log(findIndex([11, 12, 13, 39], 12));
+
 // problem 9
 // Write a function that takes two arguments X and Y as integers. And returns a value of X to the power of Y.
 
@@ -111,6 +122,43 @@ const reverseArray = (arr) => arr.reduce((acc, val) => [val, ...acc], []);
 //  --------------------------->
 // problem 10
 // Write a function that takes a parameter as an integer and returns the number of digits in this parameter.
+
+function countDigits2(digit) {
+  let count = 0;
+  while (digit >= 1) {
+    digit = parseInt(digit) / 10;
+    count = count + 1;
+  }
+  return count;
+}
+// console.log(countDigits2(4521));
+function countDigits(digit) {
+  let count = 0;
+  for (let i = digit; i >= 1; i = i / 10) {
+    count++;
+    // console.log(count);
+  }
+  // console.log(count);
+  return count;
+}
+// console.log(countDigits(4521)); something is wrong
+// console.log(countDigits(0));
+// console.log(countDigits(3543678));
+
+function countDigit1(number) {
+  let count = 0;
+  if (number === 0) {
+    return 1;
+  }
+  while (number != 0) {
+    number = Math.floor(number / 10);
+    count++;
+  }
+  return count;
+}
+// console.log(countDigit1(0));
+// console.log(countDigit1(5767));
+// console.log(countDigit1(234234));
 
 // Note: You cannot change the type of value. Like, you cannot convert an integer into a string.
 
@@ -352,6 +400,60 @@ function preventDistraction(str) {
 // preventDistraction("How to learn programming in an easy way!");
 // preventDistraction(" it is  anime!");
 // preventDistraction(" everything is good!");
+
+// Problem: 25
+// Let's start a battle with problem-solving.
+// Starting from the left side of an integer, adjacent digits pair up in "battle" and the larger digit wins. If two digits are the same, they both lose. An alone digit automatically wins.
+// Create a function that returns the victorious digits.
+// Examples:
+// battleWins(468921335) --> 6925
+// // [46]: 6 wins; [89] 9 wins; [21] 2 wins;
+// // [33] neither wins that's mean lose; 5 (automatically) wins
+// battleWins(42539) --> 459
+// battleWins(22222) --> 2
+// battleWins(6892) --> 89
+// Notes:
+// There are no winners in a battle with equal digits (neither should be printed).
+// If the length of the number is odd, the alone digit should be printed at the end of the number.
+
+function battleWins(number) {
+  let max = "";
+  numStr = number.toString();
+  numStrArr = numStr.split("");
+  for (i = 0; i < numStrArr.length; i = i + 2) {
+    if (numStrArr[i] == numStrArr[i + 1]) {
+      continue;
+    } else if (numStrArr[i] == numStrArr[numStrArr.length - 1]) {
+      max += numStrArr[i];
+    } else if (numStrArr[i] > numStrArr[i + 1]) {
+      max += numStrArr[i];
+    } else {
+      max += numStrArr[i + 1];
+    }
+  }
+  return max;
+}
+// console.log(battleWins(468921335));
+// console.log(battleWins(42539));
+// console.log(battleWins(22222));
+// console.log(battleWins(6892));
+
+// Problem: 26
+// Guys, prepare yourself for the upcoming new battleground. Which will be more challenging and interesting for you.
+// wait..! Hand washing is very important. So, please wash your hand today.
+// Let's say, It takes 21 seconds to wash your hands and help prevent the spread of COVID-19.
+// Write a function that takes the number of times a person washes their hands per day and the number of months they follow this routine after that calculates the duration in minutes and seconds that person spends washing their hands.
+
+function washHand(washTime, totalMonth) {
+  totalMonth = totalMonth * 30;
+  washTime = (washTime * 21 * totalMonth) / 60;
+  washMinutes = parseInt(washTime);
+  washSeconds = parseInt((washTime % 1).toFixed(1).substring(2) * 6);
+  // console.log(washMinutes + " minutes and " + washSeconds + " seconds");
+}
+washHand(5, 12);
+washHand(9, 7);
+washHand(11, 3);
 
 // / * the First Pattern * with Bug
 function strPattern(num) {
