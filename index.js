@@ -20,7 +20,8 @@ function OddFn(n) {
 }
 OddFn(10);
 
-//  --------------------------->
+//  ________________________________________________
+
 //  problem 2
 //  write a program to find the sum of numbers from N to M
 
@@ -42,7 +43,7 @@ function sum(m, n) {
 
 // console.log(sum(10, 20));
 
-//  --------------------------->
+//  --------_________________________________________
 
 // problem 3
 // Write a function that takes the base and height of a triangle and return its area.
@@ -52,6 +53,8 @@ function areaOfTriangle(base, height) {
 }
 // console.log(areaOfTriangle(7, 4));
 // console.log(areaOfTriangle(10, 10));
+
+// _____________________________________________________________
 
 // problem 4
 // Write a function that takes a word and returns the new word without including the first two characters.
@@ -78,6 +81,7 @@ function newWord1(char) {
 // console.log(newWord1("array"));
 // console.log(newWord1("javascript"));
 // console.log(newWord1("google"));
+// _____________________________________________________________
 
 // problem 5
 // Write a function that takes an array and return the first and last elements as a new array.
@@ -89,16 +93,64 @@ function removeElements(params) {
 // console.log(removeElements([3, 5, 78, 23, 21, 65]));
 // console.log(removeElements([6, 7, 78, 23, 21, 4]));
 
+// _____________________________________________________________
+
 // problem 6
 
 //Write a function that takes an array and return a reverse array.
 // Note: The function cannot change the main array. And you cannot use any array methods (Example: reverse() and push())
 
-const reverseArray = (arr) => arr.reduce((acc, val) => [val, ...acc], []);
+// const reverseArray = (arr) => arr.reduce((acc, val) => [val, ...acc], []);
+
+let num = [1, 2, 3, 4, 5];
+function reverse(arr) {
+  let newArray = [];
+  let n = 0;
+  for (let i = num.length - 1; i >= 0; i--) {
+    newArray[n] = num[i];
+    n++;
+  }
+  return newArray;
+}
+// console.log(reverse([num]));
+// console.log(num);
+//
+
+function arrReverse(arr) {
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    newArr[i] = arr[arr.length - i - 1];
+  }
+  return newArr;
+}
+// console.log(arrReverse(["A", "B", "C", "D", "E"]));
+// ______________________________________________________________
 
 // problem 7
 // Write a function that takes an array of strings and numbers, and filters out the array so that it returns an array of integers only.
+const filteredArray = (arr) => {
+  let arr_1 = [];
+  arr.forEach((element) => {
+    if (typeof element === typeof 1) {
+      arr_1.push(element);
+    }
+  });
+  return arr_1;
+};
+// console.log(filteredArray([2, 5, 1, "h", "1", 4]));
 
+function filterArray(array) {
+  const arr = [];
+  let index = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] === "number") {
+      arr[index] = array[i];
+      index++;
+    }
+  }
+  return arr;
+}
+// _________________________________________________________
 // problem 8
 // write a function that takes an array and a string as arguments and return the index number of the string.
 // Note: Cannot use any built-in method.
@@ -113,13 +165,26 @@ function findIndex(array, string) {
 // console.log(findIndex(["black", "red", "blue", "green"], "green"));
 // console.log(findIndex(["b", "r", "c", "green"], "b"));
 // console.log(findIndex([11, 12, 13, 39], 12));
+// _______________________________________________________________
 
 // problem 9
 // Write a function that takes two arguments X and Y as integers. And returns a value of X to the power of Y.
 
 // Note: The function will work like Math.pow(). And You cannot use any built-in methods.
 
-//  --------------------------->
+function power(x, y) {
+  let newNum = 1;
+  for (let i = 1; i <= y; i++) {
+    newNum = newNum * x;
+  }
+  return newNum;
+}
+// console.log(power(2, 4));
+
+const numPow = (num1, num2) => num1 ** num2;
+// console.log(numPow(3, 4));
+
+//  ---------------------------______________________________>
 // problem 10
 // Write a function that takes a parameter as an integer and returns the number of digits in this parameter.
 
@@ -162,26 +227,69 @@ function countDigit1(number) {
 
 // Note: You cannot change the type of value. Like, you cannot convert an integer into a string.
 
-//  --------------------------->
+//  ---------------------------_________________________________>
 
 // problem 11
 
 // Write a function that takes an integer and print a pattern for this number.
-//  --------------------------->
+function makePattern(num) {
+  const strNum = num.toString();
+  let i = 1;
+  while (i != num) {
+    // console.log(strNum.repeat(i));
+    i++;
+  }
+  i += 1;
+  while (i != 0) {
+    i--;
+    // console.log(strNum.repeat(i));
+  }
+  return;
+}
+makePattern(5);
+//  ---------------------------________________________________________________>
 
 // problem 12
 // /Write a function that takes an array of a number and return the largest number in an array
 // Note: Please avoid any kind of built-in feature for now.
-
-//  --------------------------->
+function largestNumber(arr) {
+  let i = 0;
+  let max = arr[i];
+  while (i < arr.length - 1) {
+    if (max < arr[i + 1]) {
+      max = arr[i + 1];
+    }
+    i++;
+  }
+  return max;
+}
+console.log(largestNumber([1, 5, 6, 8, 11, 7, 10]));
+//  ---------------------------_____________________________________________>
 // problem 13
 // write a function to count the number of zeros in 2D Array and it returns the total number of Zeros.
+const countZero = (arr) => arr.flat().filter((x) => x === 0).length;
+// console.log(
+//   countZero([
+//     [1, 0, 1],
+//     [5, 1, 6],
+//     [0, 8, 0],
+//   ])
+// );
+// console.log(
+//   countZero([
+//     [1, 0, 2, 0],
+//     [1, 1, 1, 0],
+//     [0, 2, 1, 0],
+//     [6, 2, 1, 0],
+//     [9, 2, 1, 0],
+//   ])
+// );
 
 // Examples:
 // countZero([[1,0,1],[5,1,6],[0,8,0]]) ---> 3
 // countZero([[1,0,2,0],[1,1,1,0],[0,2,1,0]]) ---> 5
 // countZero([[3,0,3],[8,8,8,0],[0,3,0],[1,0,1,0]]) ---> 6
-//  --------------------------->
+//  ---------------------------_________________________________________________>
 
 // problem 14
 // Write a function that takes an array of a number and return the second lowest number in an array
@@ -204,7 +312,7 @@ const lowestNumber = (array) => {
 // console.log(lowestNumber([6, 8, 1, 17, 71, 10]));
 // console.log(lowestNumber([9, 6, 3, 8, 5, 2, 9]));
 
-//  --------------------------->
+//  ---------------------------______________________________________________>
 // problem 15
 // Write a function that takes a string like this "rtr3dg6dfju7". And find all numbers from this string and return the sum of those numbers.
 
@@ -216,6 +324,7 @@ const sumNumbers = (str) =>
 // console.log(sumNumbers("ty5df1fdf4fd9"));
 // console.log(sumNumbers("abc1dgv2f3fdf4fd5"));
 // console.log(sumNumbers("zx5zx5zx5fdd0fd1"));
+// _____________________________________________________________
 
 // problem 16
 // Write a function that takes min and max value and return a random integer within min value and max value.
@@ -229,6 +338,7 @@ function randomNumber(min, max) {
 // console.log(randomNumber(5, 20));
 // console.log(randomNumber(5, 20));
 // console.log(randomNumber(5, 20));
+// _______________________________________________________________
 
 // problem 17
 // Write a function that takes two integers and return the greatest common divisor (GCD) of two integers.
@@ -247,7 +357,7 @@ function GCD(num1, num2) {
 // console.log(GCD(16, 36));
 // console.log(GCD(7, 49));
 
-//  --------------------------->
+//  ---------------------------___________________________________________________>
 
 // Problem: 18
 // Write a function that takes a string. And return the string by capitalizing the first letter of each word.
@@ -284,6 +394,7 @@ function capitalizingFn(string) {
 // console.log(capitalizingFn("we love stack learner"));
 // console.log(capitalizingFn("i love programming"));
 // console.log(capitalizingFn("deep thinking"));
+// ___________________________________________________________________________
 
 // Problem: 19
 // Write a function that takes a string and return true if the string starts with 'js' and false otherwise.
@@ -310,6 +421,7 @@ const checkString1 = (str) => str.startsWith("js");
 // console.log(checkString("deep thinker"));
 // console.log(checkString("js is amazing"));
 // console.log(checkString("json"));
+// __________________________________________________________________________
 
 // Problem: 20
 // Write a function that converts a binary number to a decimal number.
@@ -322,6 +434,7 @@ function binaryToDecimal(binary) {
 // console.log(binaryToDecimal("10011"));
 // console.log(binaryToDecimal("10"));
 // console.log(binaryToDecimal("110101"));
+// __________________________________________________________________________
 
 // Problem: 21
 // Write a function that takes a string and returns the string in alphabetical order.
@@ -334,6 +447,7 @@ function alphabeticOrder(str) {
 // console.log(alphabeticOrder("cbad"));
 // console.log(alphabeticOrder("programming"));
 // console.log(alphabeticOrder("happy"));
+// ______________________________________________________________________________
 
 // Problem: 22
 // Let's say you work in a Lamborghini car workshop, and your work is to build cars from a collection of parts. Each car needs 4 wheels, 1 car body, and 2 figures of people to be placed inside. Given the total number of wheels, car bodies, and figures available, how many complete cars can you make?
@@ -352,6 +466,7 @@ function makeCars(wheels, carBodies, figures) {
 // console.log(makeCars(20, 20, 20));
 // console.log(makeCars(58, 50, 40));
 // console.log(makeCars(111, 255, 55));
+// ______________________________________________________________________________
 
 // Problem: 23
 // A palindrome is a word, phrase, number, or other sequences of characters that reads the same backward or forward, such as madam or rotator.
@@ -370,6 +485,7 @@ function isPalindrome(str) {
 // console.log(isPalindrome("letter"));
 // console.log(isPalindrome("deed"));
 // console.log(isPalindrome("sahara"));
+// _________________________________________________________________________
 
 // Problem: 24
 // "Dushtu Polapain" stays away from "dushtu activities" while solving the problem.
@@ -400,6 +516,7 @@ function preventDistraction(str) {
 // preventDistraction("How to learn programming in an easy way!");
 // preventDistraction(" it is  anime!");
 // preventDistraction(" everything is good!");
+// ______________________________________________________________________
 
 // Problem: 25
 // Let's start a battle with problem-solving.
@@ -437,6 +554,7 @@ function battleWins(number) {
 // console.log(battleWins(42539));
 // console.log(battleWins(22222));
 // console.log(battleWins(6892));
+// _____________________________________________________________________________
 
 // Problem: 26
 // Guys, prepare yourself for the upcoming new battleground. Which will be more challenging and interesting for you.
@@ -454,6 +572,8 @@ function washHand(washTime, totalMonth) {
 washHand(5, 12);
 washHand(9, 7);
 washHand(11, 3);
+
+// extra __________________________________________________
 
 // / * the First Pattern * with Bug
 function strPattern(num) {
@@ -492,3 +612,20 @@ const test_result1 = test_arr.filter((x, index) => {
 });
 
 // console.log(test_result1);
+
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      // compare two adjacent element
+      if (arr[j] > arr[j + 1]) {
+        // swap them
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        swap = true;
+      }
+    }
+  }
+  return arr;
+}
+console.log(bubbleSort([1, 10, 2, 3, 5, 30, 40, 28]));
