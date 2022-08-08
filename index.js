@@ -629,3 +629,28 @@ function bubbleSort(arr) {
   return arr;
 }
 console.log(bubbleSort([1, 10, 2, 3, 5, 30, 40, 28]));
+
+// problem 12
+
+var arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+var removed = arr1.splice(2, 2);
+// console.log(removed);
+
+// system 1
+const arr = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 90];
+// remove 7 index from this array
+
+for (let i = 5; i < arr.length; i++) {
+  if (arr[i] === 40) {
+    arr.splice(i, 1);
+    // console.log(arr);
+  }
+}
+
+// system2
+const arr2 = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 90];
+
+const resultArr = arr2.splice(7, 1);
+
+// console.log(arr2);
+// console.log(resultArr);
