@@ -232,3 +232,25 @@ const { c: { d: { a: result } = {} } = {} } = b;
 let txt = "I can eat bananas all day";
 let x = txt.slice(10, 17);
 // console.log(x);
+
+
+// reduce problem   
+
+const getMax = (a, b) => Math.max(a, b);
+
+const result1 = [1, 5, 7, 10, 0, 22, 37].reduce(getMax);
+
+// console.log("reducer result", result1);
+
+const shape ={
+  radius:10,
+  diameter(){
+    return this.radius * 2 ;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+}
+// console.log(shape.diameter())
+// console.log(shape.perimeter())
+
+
+
