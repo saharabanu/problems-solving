@@ -207,30 +207,30 @@ const response = {
 // console.log(response?.details?.views);
 // console.log(response && response.details && response.details.views ? response.details.views : 0);
 
-const a = 5;
-const b = {
-  b: 1,
-  // c: {
-  //   d: {
-  //     a: 5,
-  //   },
-  // },
-};
+// const a = 5;
+// const b = {
+//   b: 1,
+//   // c: {
+//   //   d: {
+//   //     a: 5,
+//   //   },
+//   // },
+// };
 
-// const {
-//   c: {
-//     d: { a: result },
-//   },
-// } = b;
+// // const {
+// //   c: {
+// //     d: { a: result },
+// //   },
+// // } = b;
 
-// const {c:{d:{a} ={}}} = b;
-// console.log(a)
-// const { c: { d: { a: result } } = {} } = b;
-const { c: { d: { a: result } = {} } = {} } = b;
-// console.log(b);
-// console.log(result);
-let txt = "I can eat bananas all day";
-let x = txt.slice(10, 17);
+// // const {c:{d:{a} ={}}} = b;
+// // console.log(a)
+// // const { c: { d: { a: result } } = {} } = b;
+// const { c: { d: { a: result } = {} } = {} } = b;
+// // console.log(b);
+// // console.log(result);
+// let txt = "I can eat bananas all day";
+// let x = txt.slice(10, 17);
 // console.log(x);
 
 
@@ -251,6 +251,94 @@ const shape ={
 }
 // console.log(shape.diameter())
 // console.log(shape.perimeter())
+const libraries = [
+  {
+      id: 1,
+      title: "React",
+      created: 2013,
+  },
+  {
+      id: 2,
+      title: "Vue",
+      created: 2014,
+  },
+  {
+      id: 3,
+      title: "Svelte",
+      created: 2016,
+  },
+];
 
+const result2 = libraries.filter((lib) => lib.created > 2015);
+result2[0].title = "React";
+// console.log(result2)
+
+// console.log(libraries[2].title);
+
+// problem 1 
+const b = 5;
+function calc(num1, num2) {
+ const a = num1;
+ const b = 2;
+ function sum() {
+  return a + b;
+ }
+ function sub() {
+  return a - b;
+ }
+ var summationResult = sum();
+ var subtractionResult = sub();
+ return { summationResult, subtractionResult };
+}
+const result = calc(5, 15);
+// console.log(result);
+
+//* problem 2
+
+// console.log("Task 1");
+// setTimeout(() => {
+//  console.log("Task 2");
+// }, 5000);
+// console.log("Task 3");
+// setTimeout(() => {
+//  console.log("Task 4");
+// }, 0);
+// console.log("Task 5");
+
+
+//problem 3
+
+
+
+var name = "Hero";
+function changeName() {
+//  console.log(name);
+ var name = "Alam";
+}
+changeName();
+
+
+// problem 4 
+const count = () => {
+  for (var i = 1; i < 5; i++) {}
+  console.log(i);
+ };
+ count();
+
+ // problem 5 
+
+ const car = {
+  imported: 250,
+  price: 26500000,
+  calc: function () {
+  //  console.log(this.price * this.imported);
+  },
+ };
+ const bike = {
+  imported: 150,
+  price: 2200000,
+ };
+ 
+ bike.calc();
 
 
