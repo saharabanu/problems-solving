@@ -406,22 +406,86 @@ function upper_lower(str) {
 
 function myFunc(str1, str2) {
   let count = 0;
-  for (let i = 0   ; i < str1.length && i < str2.length ; i++) {
-      if (str1[i] !== str2[i]) {
+  for (let i =  0   ; i < str1.length && i < str2.length ; i++) {
+      if (str1[i]  !== str2[i] ) {
           count++;
+         
       }
+     
+      
   }
   return count >= 1;
 }
 var test1 = myFunc('javaScript', 'java'); // false
-var test2 = myFunc('javahhgh', 'jasvanmjgh'); // true
-var test3 = myFunc('amirul', 'ami'); // false
+var test2 = myFunc('javahhgh', 'jasvanmjgh'); // false
+var test3 = myFunc('amir', 'amilr'); // true
 var test4 = myFunc('sahara', 'sahabra'); // true
 var test5 = myFunc('reactjs', 'react'); // false
-var test6 = myFunc('nodejs', 'noddddejs'); // true
-// console.log(test1, test2, test3, test4, test5, test6);
+var test6 = myFunc('nodejs', 'noddddejs'); // false
+console.log(test1, test2, test3, test4, test5, test6);
 
 
+// function func(str1, str2) {
+//   var count = 0;
+//   var i=j=0;
+
+//   while (i < str1.length && j < str2.length) {
+//     if (str1[i] !== str2[j]) {
+//       count++;
+
+//       if(str1.length > str2.length){
+//         i++;
+//       }
+//       else if(str1.length === str2.length){
+//         console.log('same');
+
+//       }
+//       else{
+//         i--
+//       }
+      
+//     }
+
+//     if(count > 1){
+//       i++;
+//       j++
+//       console.log(false);
+
+//     }
+
+//     if(count < 2){
+//       console.log(true);
+//     }
+
+    
+//   }
+  
+// }
+
+
+// console.log(func('sahara', 'anu'));
+
+
+//             if(len(str1)>len(str2)):
+//                 i=i+1
+//             elif(len(str1)==len(str2)):
+//                 pass
+//             else:
+//                 i=i-1
+//         if(count>1):
+//             return False
+//         i=i+1
+//         j=j+1
+//     if(count<2):
+//             return True
+  
+// str1=input("Enter first string::\n")
+// str2=input("Enter second string::\n")
+// boolean=nearly_equal(str1,str2)
+// if(boolean):
+//     print("Strings are nearly equal.")
+// else:
+//     print("Strings are not equal.")
 
 
 
