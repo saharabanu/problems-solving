@@ -11,29 +11,31 @@ Example 2:
 Input: object
 Output: ject
 Constraints:
-Word length cannot be negative or zero.
+Word length cannot be negative or zero. i can't understand
 
 
 */
 
 
 function newFunc(word){
-    let newWord = '';
+    
 
     for (let i = 0; i < word.length; i++) {
-       if(word.length > 2){
+      
+       if(word.length < 2){
         return -1
        }
-       else if(word.length >= 2){
+       else if(word.length <= 2){
          return 1
        }
-       else if(word.length === 2){
-        newWord
-       }
        
+       else{
+        return word.slice(2)
+       }
         
     }
 
-return newWord
+
 }
-console.log(newFunc('array'))
+let word = 'array'
+console.log(newFunc(word))
